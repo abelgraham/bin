@@ -1,0 +1,4 @@
+pactl list modules | grep alsa_input.pci-0000_38_00.6.analog-stereo && 
+pactl unload-module $(pactl list modules | grep alsa_input.pci-0000_38_00.6.analog-stereo -B 2 | head -n1 | cut -d "#" -f2) || 
+pactl load-module module-loopback source=alsa_input.pci-0000_38_00.6.analog-stereo  
+
